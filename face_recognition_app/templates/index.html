@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Comparison</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Comparison</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <div class="file-inputs">
+                <label for="image1">Select first image:</label>
+                <input type="file" name="image1" id="image1" required>
+                
+                <label for="image2">Select second image:</label>
+                <input type="file" name="image2" id="image2" required>
+            </div>
+
+            {% if image1_path and image2_path %}
+                <div class="image-previews">
+                    <img src="{{ url_for('uploaded_file', filename=image1_path) }}" alt="Image 1 Preview" class="preview">
+                    <img src="{{ url_for('uploaded_file', filename=image2_path) }}" alt="Image 2 Preview" class="preview">
+                </div>
+            {% endif %}
+
+            <button type="submit">Compare</button>
+        </form>
+    </div>
+</body>
+</html>

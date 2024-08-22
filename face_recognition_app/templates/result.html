@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Results</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Comparison Results</h1>
+        {% if majority_result %}
+            <p>The images are of the same person.</p>
+        {% else %}
+            <p>The images are of different people.</p>
+        {% endif %}
+        {% if low_res_warning %}
+            <p>Warning: One or both images have very low resolution. Please use higher quality images for better accuracy.</p>
+        {% endif %}
+        <button onclick="window.location.href='/'">Compare Again</button>
+    </div>
+</body>
+</html>
